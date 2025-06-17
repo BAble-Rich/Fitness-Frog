@@ -43,13 +43,24 @@ namespace Treehouse.FitnessFrog.Controllers
         {
             return View();
         }
-        // We at times need to handle a form Post. Below is how we can do that.
-        // We use an attribute below, and give it a parameter value. Thats associted with the method
-        // We can stack the attributes, or comma separate them
-        // To test this we can add a breakpoint on add, then run the program
+        /*We at times need to handle a form Post. Below is how we can do that.
+        We use an attribute below, and give it a parameter value. Thats associted with the method
+        We can stack the attributes, or comma separate them
+        To test this we can add a breakpoint on add, then run the program*/
         [ActionName("Add"), HttpPost]
-        public ActionResult AddPost()
+        public ActionResult Add(string date, string activityId, string duration, string intensity, string exclude, string notes)
         {
+            /* We can also use a model to capture POST data. We wouldn't want to do it for each form field though. So MVC lets us define
+              method params for each one. See Above. Also means we can rechange from AddPost to Add.
+            You can now run this, and see at the breakpoint it return the values. This is Model Binding */
+
+            ViewBag.Date = date;
+            ViewBag.ActivityId = activityId;
+            ViewBag.Duration = duration;
+            ViewBag.Intensity = intensity;
+            ViewBag.Exclude = exclude;
+            ViewBag.Notes = notes;
+
             return View();
         }
 
