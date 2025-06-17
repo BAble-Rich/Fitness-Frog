@@ -43,6 +43,15 @@ namespace Treehouse.FitnessFrog.Controllers
         {
             return View();
         }
+        // We at times need to handle a form Post. Below is how we can do that.
+        // We use an attribute below, and give it a parameter value. Thats associted with the method
+        // We can stack the attributes, or comma separate them
+        // To test this we can add a breakpoint on add, then run the program
+        [ActionName("Add"), HttpPost]
+        public ActionResult AddPost()
+        {
+            return View();
+        }
 
         public ActionResult Edit(int? id)
         {
